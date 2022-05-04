@@ -1,0 +1,152 @@
+{
+  "Routes": [
+    //Authentication.
+    {
+      "DownstreamPathTemplate": "/api/user/authenticate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 23489
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/user/authenticate",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+
+    //Registration service
+    //Adds new user to database.
+    {
+      "DownstreamPathTemplate": "/api/Register/RegisterNewUser",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 1162
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/Register/RegisterNewUser",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+
+    //UserDetails service
+    //Gets all existing users.
+    {
+      "DownstreamPathTemplate": "/api/UserDetails/GetAllUsers",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 48865
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/UserDetails/GetAllUsers",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    //Gets user details using userid.
+    {
+      "DownstreamPathTemplate": "/api/UserDetails/GetUserDetails",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 48865
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/UserDetails/GetUserDetails",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+
+    //Inventories service.
+    //Gets all Inventories.
+    {
+      "DownstreamPathTemplate": "/api/Inventory/GetAllInventories",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 11308
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/Inventory/GetAllInventories",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    //Gets all inventories with search filters
+    {
+      "DownstreamPathTemplate": "/api/Inventory/GetAllInventoriesWithSearch",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 11308
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/Inventory/GetAllInventoriesWithSearch",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    //Adds new Inventory
+    {
+      "DownstreamPathTemplate": "/api/Inventory/AddNewInventory",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 11308
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/Inventory/AddNewInventory",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+
+    //BookingTicket service
+    //Gets all booked tickets.
+    {
+      "DownstreamPathTemplate": "/api/Bookings/GetAllTickets",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62554
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/Bookings/GetAllTickets",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    //Gets one particular ticket using ticketid.
+    {
+      "DownstreamPathTemplate": "/api/Bookings/BookTicket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62554
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/Bookings/BookTicket",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:23488"
+  }
+}
