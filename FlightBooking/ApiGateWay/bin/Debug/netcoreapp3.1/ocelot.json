@@ -160,10 +160,10 @@
       }
     },
 
-    //BookingTicket service
-    //Gets all booked tickets.
+    //TicketBooking service.
+    //Books new ticket.
     {
-      "DownstreamPathTemplate": "/api/Bookings/GetAllTickets",
+      "DownstreamPathTemplate": "/api/TicketBooking/BookTicket",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -171,30 +171,65 @@
           "Port": 62554
         }
       ],
-      "UpstreamPathTemplate": "/api/gateway/Bookings/GetAllTickets",
-      "UpstreamHttpMethod": [ "Get" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "TestKey",
-        "AllowedScopes": []
-      }
-    },
-    //Gets one particular ticket using ticketid.
-    {
-      "DownstreamPathTemplate": "/api/Bookings/BookTicket",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 62554
-        }
-      ],
-      "UpstreamPathTemplate": "/api/gateway/Bookings/BookTicket",
+      "UpstreamPathTemplate": "/api/gateway/TicketBooking/BookTicket",
       "UpstreamHttpMethod": [ "Post" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "TestKey",
         "AllowedScopes": []
       }
+    },
+    //Cancel a ticket.
+    {
+      "DownstreamPathTemplate": "/api/TicketBooking/CancelTicket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62554
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/TicketBooking/CancelTicket",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    //Gets one ticket using ticket id.
+    {
+      "DownstreamPathTemplate": "/api/TicketBooking/GetTicket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62554
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/TicketBooking/GetTicket",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    //Gets all tickets.
+    {
+      "DownstreamPathTemplate": "/api/TicketBooking/GetAllTickets",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 62554
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/TicketBooking/GetAllTickets",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     }
+
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:23488"

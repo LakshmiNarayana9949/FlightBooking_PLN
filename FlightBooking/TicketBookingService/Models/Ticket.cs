@@ -7,26 +7,26 @@ using System.Threading.Tasks;
 
 namespace TicketBookingService.Models
 {
-    public class Bookings
+    public class Ticket
     {
-        [Key]
-        public string TicketID { set; get; }
+        public int Id { get; set; }
         public string BookingID { set; get; }
+        public string TicketID { set; get; }        
         public int FlightId { set; get; }
         public DateTime DateOfJourney { set; get; }
         public string FromPlace { set; get; }
         public string ToPlace { set; get; }
         public DateTime BoardingTime { set; get; }
        // public string EmailID { set; get; }
-        public string UserName { set; get; }
-        public string passportNumber { set; get; }
-        public string Age { set; get; }
+        public string PassengerName { set; get; }
+        public string PassportNumber { set; get; }
+        public int Age { set; get; }
         public string SeatNumber { set; get; }
         public int Status { set; get; }
-        public string Statusstr { set; get; }
-        public string CreatedBy { set; get; }
-        public DateTime CreatedDate { set; get; }
-        public string Updatedby { set; get; }
-        public DateTime UpdatedDate { set; get; }
+        public string StatusStr { set; get; }
+        public int CreatedBy { set; get; }
+        public DateTime CreatedOn { set; get; }
+        public int ModifiedBy { set; get; }
+        public DateTime ModifiedOn { set; get; }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TicketBookingService.Services
 {
-    public interface IBookingInterface
+    public interface ITicketBookingInterface
     {
-        void Insert(Bookings bookings);
+        void BookNewTicket(Ticket bookings);
 
-        IEnumerable<Bookings> GetBookings();
+        IEnumerable<Ticket> GetAllTickets();
 
-        void UpdateBooking(Bookings bookings);
+        void UpdateTicket(Ticket bookings);
     }
 }

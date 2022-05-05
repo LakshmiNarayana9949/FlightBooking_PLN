@@ -30,8 +30,8 @@ namespace TicketBookingService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<ApplicationBookDbcontext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
-            services.AddTransient<IBookingInterface, BookingsImpl>();
+            services.AddDbContext<TicketBookingDbcontext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
+            services.AddTransient<ITicketBookingInterface, TicketBookingsImpl>();
             services.AddSwaggerGen();
             services.AddAuthentication(x =>
             {

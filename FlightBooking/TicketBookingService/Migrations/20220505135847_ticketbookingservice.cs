@@ -8,37 +8,39 @@ namespace TicketBookingService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "tblBookings",
+                name: "Tickets",
                 columns: table => new
                 {
-                    TicketID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BookingID = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TicketID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FlightId = table.Column<int>(type: "int", nullable: false),
                     DateOfJourney = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FromPlace = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ToPlace = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BoardingTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    passportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Age = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PassengerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     SeatNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    Statusstr = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Updatedby = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    StatusStr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblBookings", x => x.TicketID);
+                    table.PrimaryKey("PK_Tickets", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "tblBookings");
+                name: "Tickets");
         }
     }
 }

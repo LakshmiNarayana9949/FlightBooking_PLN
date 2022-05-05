@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace TicketBookingService.DBContext
 {
-    public class ApplicationBookDbcontext :DbContext 
+    public class TicketBookingDbcontext :DbContext 
     {
-        public ApplicationBookDbcontext(DbContextOptions<ApplicationBookDbcontext> options) : base(options)
+        public TicketBookingDbcontext(DbContextOptions<TicketBookingDbcontext> options) : base(options)
         {
 
         }
 
-        public DbSet<Bookings> tblBookings { set; get; }
+        public DbSet<Ticket> Tickets { set; get; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

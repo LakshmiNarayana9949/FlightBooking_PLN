@@ -196,7 +196,6 @@ D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\staticwebassets\TicketBookingService.StaticWebAssets.xml
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\scopedcss\bundle\TicketBookingService.styles.css
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.RazorTargetAssemblyInfo.cache
-D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.csproj.CopyComplete
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.genruntimeconfig.cache
