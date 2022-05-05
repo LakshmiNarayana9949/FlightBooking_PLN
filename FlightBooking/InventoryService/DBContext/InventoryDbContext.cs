@@ -13,9 +13,9 @@ namespace InventoryService.DBContext
         {
 
         }
-        public DbSet<Inventorys> tblInventories { get; set; }
-        public DbSet<AirLine> tblAirLine { get; set; }
-        public DbSet<Flight> tblFlight { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<AirLine> AirLines { get; set; }
+        public DbSet<Flight> Flights { get; set; }
 
         protected override void OnModelCreating(ModelBuilder model)
         {

@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace InventoryService.Models
 {
-    public class Inventorys
+    public class Inventory
     {
         [Key]
-        public int INventoryId { get; set; }
-        
+        public int InventoryId { get; set; }        
         public int FlightNumber { get; set; }
         public int AirLineId { get; set; }
         public string FromPlace { get; set; }
@@ -24,10 +23,10 @@ namespace InventoryService.Models
         public int TicketCost { get; set; }
         public int Rows { get; set; }
         public int Meal { get; set; }
-        public string CreatedBy { set; get; }
-        public DateTime CreatedDate { set; get; }
-        public string Updatedby { set; get; }
-        public DateTime UpdatedDate { set; get; }
+        public int CreatedBy { set; get; }
+        public DateTime CreatedOn { set; get; }
+        public int ModifiedBy { set; get; }
+        public DateTime ModifiedOn { set; get; }
 
     }
 }

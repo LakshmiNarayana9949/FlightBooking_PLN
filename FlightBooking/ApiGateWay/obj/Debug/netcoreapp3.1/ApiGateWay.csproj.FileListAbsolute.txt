@@ -1485,3 +1485,4 @@ D:\LN\FlightBooking_PLN\FlightBooking\ApiGateWay\obj\Debug\netcoreapp3.1\APIGate
 D:\LN\FlightBooking_PLN\FlightBooking\ApiGateWay\obj\Debug\netcoreapp3.1\APIGateWay.dll
 D:\LN\FlightBooking_PLN\FlightBooking\ApiGateWay\obj\Debug\netcoreapp3.1\APIGateWay.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\ApiGateWay\obj\Debug\netcoreapp3.1\APIGateWay.genruntimeconfig.cache
+D:\LN\FlightBooking_PLN\FlightBooking\ApiGateWay\obj\Debug\netcoreapp3.1\APIGateWay.csproj.AssemblyReference.cache

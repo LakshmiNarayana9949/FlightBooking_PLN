@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
 using Microsoft.AspNetCore.Authorization;
+using UserDetailsService.Common;
 //using Authenticate;
 //using Authenticate.Models;
 //using Authenticate.Services;
@@ -43,9 +44,17 @@ namespace UserDetailsService.Controllers
             {
                 using (var scope = new TransactionScope())
                 {
-                    var users = _userRepository.GetAllUsers().ToList();
-                    scope.Complete();
-                    return Ok(users);
+                    int loggedInUserType = 2;//Need to save this in session once user login.
+                    if (loggedInUserType == (int)CommonEnums.UserType.Admin)
+                    {
+                        var users = _userRepository.GetAllUsers().ToList().Where(a => a.UserType == (int)CommonEnums.UserType.User);
+                        scope.Complete();
+                        return Ok(users);
+                    }
+                    else
+                    {
+                        return BadRequest("Only admin can able to see all users details");
+                    }
                 }
             }
             catch(Exception ex)

@@ -32,6 +32,7 @@ namespace InventoryService
             services.AddControllers();
             services.AddDbContext<InventoryDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
             services.AddTransient<IInventoryInterface, InventoryImpl>();
+            services.AddTransient<IAirLineInterface, AirLineImpl>();
             services.AddSwaggerGen();
             services.AddAuthentication(x =>
             {

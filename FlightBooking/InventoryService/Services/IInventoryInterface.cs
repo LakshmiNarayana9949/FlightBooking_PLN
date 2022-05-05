@@ -8,8 +8,8 @@ namespace InventoryService.Services
 {
     public interface IInventoryInterface
     {
-        void PlanInventory(Inventorys inventory);
-        List<Inventorys> ShowInventories();
+        void PlanInventory(Inventory inventory);
+        List<Inventory> ShowInventories();
         void CancelInventory(int id);
     }
 }

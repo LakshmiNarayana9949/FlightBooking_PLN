@@ -11,9 +11,9 @@ namespace InventoryService.Models
         public string FlightNumber { get; set; }
         public int AirLineId { get; set; }
         public string FlightName { get; set; }
-        public string CreatedBy { set; get; }
-        public DateTime CreatedDate { set; get; }
-        public string Updatedby { set; get; }
-        public DateTime UpdatedDate { set; get; }
+        public int CreatedBy { set; get; }
+        public DateTime CreatedOn { set; get; }
+        public int ModifiedBy { set; get; }
+        public DateTime ModifiedOn { set; get; }
     }
 }

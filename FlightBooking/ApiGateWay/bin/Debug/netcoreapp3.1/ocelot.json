@@ -125,6 +125,40 @@
         "AllowedScopes": []
       }
     },
+    //Gets all AirLines
+    {
+      "DownstreamPathTemplate": "/api/AirLine/GetAllAirlines",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 11308
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/AirLine/GetAllAirlines",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
+    //Adds new AirLine
+    {
+      "DownstreamPathTemplate": "/api/AirLine/AddNewAirLine",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 11308
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/AirLine/AddNewAirLine",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
 
     //BookingTicket service
     //Gets all booked tickets.

@@ -41,7 +41,7 @@ namespace InventoryService.Controllers
         [Authorize]
         [HttpPost]
         [Route("AddNewInventory")]
-        public void AddNewInventory(Inventorys inventory)
+        public void AddNewInventory(Inventory inventory)
         {
             _inventory.PlanInventory(inventory);
         }

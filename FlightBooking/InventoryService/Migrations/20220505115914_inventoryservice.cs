@@ -8,7 +8,7 @@ namespace InventoryService.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "tblAirLine",
+                name: "AirLines",
                 columns: table => new
                 {
                     AirlineId = table.Column<int>(type: "int", nullable: false)
@@ -16,18 +16,18 @@ namespace InventoryService.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ContactNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Updatedby = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblAirLine", x => x.AirlineId);
+                    table.PrimaryKey("PK_AirLines", x => x.AirlineId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "tblFlight",
+                name: "Flights",
                 columns: table => new
                 {
                     FlightID = table.Column<int>(type: "int", nullable: false)
@@ -35,21 +35,21 @@ namespace InventoryService.Migrations
                     FlightNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AirLineId = table.Column<int>(type: "int", nullable: false),
                     FlightName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Updatedby = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblFlight", x => x.FlightID);
+                    table.PrimaryKey("PK_Flights", x => x.FlightID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "tblInventories",
+                name: "Inventories",
                 columns: table => new
                 {
-                    INventoryId = table.Column<int>(type: "int", nullable: false)
+                    InventoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FlightNumber = table.Column<int>(type: "int", nullable: false),
                     AirLineId = table.Column<int>(type: "int", nullable: false),
@@ -64,27 +64,27 @@ namespace InventoryService.Migrations
                     TicketCost = table.Column<int>(type: "int", nullable: false),
                     Rows = table.Column<int>(type: "int", nullable: false),
                     Meal = table.Column<int>(type: "int", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Updatedby = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedBy = table.Column<int>(type: "int", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_tblInventories", x => x.INventoryId);
+                    table.PrimaryKey("PK_Inventories", x => x.InventoryId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "tblAirLine");
+                name: "AirLines");
 
             migrationBuilder.DropTable(
-                name: "tblFlight");
+                name: "Flights");
 
             migrationBuilder.DropTable(
-                name: "tblInventories");
+                name: "Inventories");
         }
     }
 }

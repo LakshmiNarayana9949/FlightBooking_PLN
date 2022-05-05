@@ -11,9 +11,9 @@ namespace InventoryService.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public string ContactNumber { get; set; }
-        public string CreatedBy { set; get; }
-        public DateTime CreatedDate { set; get; }
-        public string Updatedby { set; get; }
-        public DateTime UpdatedDate { set; get; }
+        public int CreatedBy { set; get; }
+        public DateTime CreatedOn { set; get; }
+        public int ModifiedBy { set; get; }
+        public DateTime ModifiedOn { set; get; }
     }
 }

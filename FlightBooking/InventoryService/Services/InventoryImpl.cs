@@ -19,15 +19,15 @@ namespace InventoryService.Services
 
         }
 
-        public void PlanInventory(Inventorys inventory)
+        public void PlanInventory(Inventory inventory)
         {
-            _inventoryDbContext.tblInventories.Add(inventory);
+            _inventoryDbContext.Inventories.Add(inventory);
             save();
         }
 
-        public List<Inventorys> ShowInventories()
+        public List<Inventory> ShowInventories()
         {
-            return _inventoryDbContext.tblInventories.ToList();
+            return _inventoryDbContext.Inventories.ToList();
         }
         public void save()
         {

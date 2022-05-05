@@ -19,7 +19,7 @@ namespace InventoryService.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Airline.Inventory.Models.AirLine", b =>
+            modelBuilder.Entity("InventoryService.Models.AirLine", b =>
                 {
                     b.Property<int>("AirlineId")
                         .ValueGeneratedOnAdd()
@@ -32,27 +32,27 @@ namespace InventoryService.Migrations
                     b.Property<string>("ContactNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ModifiedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Updatedby")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("AirlineId");
 
-                    b.ToTable("tblAirLine");
+                    b.ToTable("AirLines");
                 });
 
-            modelBuilder.Entity("Airline.Inventory.Models.Flight", b =>
+            modelBuilder.Entity("InventoryService.Models.Flight", b =>
                 {
                     b.Property<int>("FlightID")
                         .ValueGeneratedOnAdd()
@@ -62,10 +62,10 @@ namespace InventoryService.Migrations
                     b.Property<int>("AirLineId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FlightName")
@@ -74,20 +74,20 @@ namespace InventoryService.Migrations
                     b.Property<string>("FlightNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("ModifiedBy")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Updatedby")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("FlightID");
 
-                    b.ToTable("tblFlight");
+                    b.ToTable("Flights");
                 });
 
-            modelBuilder.Entity("Airline.Inventory.Models.Inventorys", b =>
+            modelBuilder.Entity("InventoryService.Models.Inventory", b =>
                 {
-                    b.Property<int>("INventoryId")
+                    b.Property<int>("InventoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -98,10 +98,10 @@ namespace InventoryService.Migrations
                     b.Property<int>("BClassCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedDate")
+                    b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("EndDate")
@@ -118,6 +118,12 @@ namespace InventoryService.Migrations
 
                     b.Property<int>("Meal")
                         .HasColumnType("int");
+
+                    b.Property<int>("ModifiedBy")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("NBClassCount")
                         .HasColumnType("int");
@@ -137,15 +143,9 @@ namespace InventoryService.Migrations
                     b.Property<string>("ToPlace")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
+                    b.HasKey("InventoryId");
 
-                    b.Property<string>("Updatedby")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("INventoryId");
-
-                    b.ToTable("tblInventories");
+                    b.ToTable("Inventories");
                 });
 #pragma warning restore 612, 618
         }
