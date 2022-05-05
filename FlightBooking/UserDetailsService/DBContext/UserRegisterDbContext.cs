@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace UserDetailsService.DBContext
 {
-    public class UserRegisterDbContext : DbContext
+    public class UserDetailsDbContext : DbContext
     {
-        public UserRegisterDbContext(DbContextOptions<UserRegisterDbContext> options):base(options)
+        public UserDetailsDbContext(DbContextOptions<UserDetailsDbContext> options):base(options)
         {
 
         }
 
-        public DbSet<UserModel> UserRegistor { set; get; }
+        public DbSet<UserModel> Users { set; get; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         { 

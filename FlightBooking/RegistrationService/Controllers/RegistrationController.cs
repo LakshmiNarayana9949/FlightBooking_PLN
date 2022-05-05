@@ -6,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using UserDetailsService.Models;
 using UserDetailsService.Services;
+using System.Transactions;
+using UserDetailsService.Common;
 
 namespace RegistrationService.Controllers
 {
@@ -13,23 +15,52 @@ namespace RegistrationService.Controllers
     [ApiController]
     public class RegisterController : ControllerBase
     {
-        public readonly IUserInterface _userRepository;
-        public RegisterController(IUserInterface userRepository)
+        public readonly IUserInterface _iUserInterface;
+        public RegisterController(IUserInterface iUserInterface)
         {
-            _userRepository = userRepository;
+            _iUserInterface = iUserInterface;
         }
         [HttpPost]
         [Route("RegisterNewUser")]
-        public IActionResult RegisterNewUser([FromBody] UserModel user)
+        public IActionResult RegisterNewUser(UserModel user)
         {
             try
             {
-                _userRepository.AddNewUser(user);
-                return Accepted();
+                user.UserType = (int) CommonEnums.UserType.User;
+                bool emailAlreadyExists = IsEmailAlreadyExists(user.Email);
+                if (!emailAlreadyExists)
+                {
+                    using (var scope = new TransactionScope())
+                    {
+                        _iUserInterface.AddNewUser(user);
+                        scope.Complete();
+                        return Ok(user.FirstName + " " + user.LastName + " " + "registered successfully.");
+                    }
+                }
+                else
+                {
+                    return BadRequest("Email already exists");
+                }
             }
-            catch
+            catch(Exception ex)
             {
                 return BadRequest();
+            }
+        }
+
+        public bool IsEmailAlreadyExists(string email)
+        {
+            try
+            {
+                List<UserModel> usersList = _iUserInterface.GetAllUsers().ToList().Where(a => a.Email.ToLower() == email.ToLower()).ToList();
+                if (usersList.Count() > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch(Exception ex)
+            {
+                return true;
             }
         }
     }

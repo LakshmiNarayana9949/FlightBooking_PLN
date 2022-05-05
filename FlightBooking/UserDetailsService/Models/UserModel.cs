@@ -11,6 +11,8 @@ namespace UserDetailsService.Models
         [Key]
         public int UserID { set; get; }
 
+        public int UserType { get; set; }
+
         //[Required]
         //[StringLength(50, ErrorMessage = "Length Should no greater than 50 char")]
         public string FirstName { set; get; }
@@ -33,11 +35,9 @@ namespace UserDetailsService.Models
         //[Required]
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { set; get; }
-
-        public string CreatedBy { set; get; }
-        public DateTime CreatedDate { set; get; }
-        public string Updatedby { set; get; }
-        public DateTime UpdatedDate { set; get; }
+        public DateTime CreatedOn { set; get; }
+        public int ModifiedBy { set; get; }
+        public DateTime ModifiedOn { set; get; }
 
     }
 }

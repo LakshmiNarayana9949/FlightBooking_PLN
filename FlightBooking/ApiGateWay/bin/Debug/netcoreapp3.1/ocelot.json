@@ -11,7 +11,11 @@
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/user/authenticate",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
 
     //Registration service
@@ -26,7 +30,11 @@
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Register/RegisterNewUser",
-      "UpstreamHttpMethod": [ "Post" ]
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
 
     //UserDetails service
@@ -41,7 +49,11 @@
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/UserDetails/GetAllUsers",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
     //Gets user details using userid.
     {
@@ -54,7 +66,11 @@
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/UserDetails/GetUserDetails",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
     },
 
     //Inventories service.

@@ -30,7 +30,7 @@ namespace UserDetailsService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<UserRegisterDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
+            services.AddDbContext<UserDetailsDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
             services.AddTransient<IUserInterface, UserImpl>();
             services.AddSwaggerGen();
             services.AddAuthentication(x =>
@@ -65,8 +65,8 @@ namespace UserDetailsService
 
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseSwagger();
             app.UseSwaggerUI();

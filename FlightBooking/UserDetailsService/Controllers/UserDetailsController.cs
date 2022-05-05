@@ -41,13 +41,16 @@ namespace UserDetailsService.Controllers
         {
             try
             {
-                var users = _userRepository.GetAllUsers();
-                //return new OkObjectResult(users);
-                return Ok(users);
+                using (var scope = new TransactionScope())
+                {
+                    var users = _userRepository.GetAllUsers().ToList();
+                    scope.Complete();
+                    return Ok(users);
+                }
             }
             catch(Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex);
             }
         }
 

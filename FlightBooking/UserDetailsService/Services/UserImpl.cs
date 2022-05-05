@@ -9,27 +9,27 @@ namespace UserDetailsService.Services
 {
     public class UserImpl : IUserInterface
     {
-        public UserRegisterDbContext _UserRegisterDbContext;
+        public UserDetailsDbContext _userDetailsDbContext;
 
-        public UserImpl(UserRegisterDbContext userRegisterDbContext)
+        public UserImpl(UserDetailsDbContext userRegisterDbContext)
         {
-            _UserRegisterDbContext = userRegisterDbContext;
+            _userDetailsDbContext = userRegisterDbContext;
         }
 
         public IEnumerable<UserModel> GetAllUsers()
         {
-            return _UserRegisterDbContext.UserRegistor.ToList();
+            return _userDetailsDbContext.Users.ToList();
         }
 
         public void AddNewUser(UserModel user)
         {
-            _UserRegisterDbContext.UserRegistor.Add(user);
-            _UserRegisterDbContext.SaveChanges();
+            _userDetailsDbContext.Users.Add(user);
+            _userDetailsDbContext.SaveChanges();
         }
 
         public UserModel GetUserDetails(int userId)
         {
-            return _UserRegisterDbContext.UserRegistor.ToList().Where(a => a.UserID == userId).ToList()[0];
+            return _userDetailsDbContext.Users.ToList().Where(a => a.UserID == userId).ToList()[0];
         }
     }
 }

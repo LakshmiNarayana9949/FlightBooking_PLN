@@ -196,6 +196,7 @@ D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\s
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\staticwebassets\InventoryService.StaticWebAssets.xml
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\scopedcss\bundle\InventoryService.styles.css
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.RazorTargetAssemblyInfo.cache
+D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.csproj.CopyComplete
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.genruntimeconfig.cache
