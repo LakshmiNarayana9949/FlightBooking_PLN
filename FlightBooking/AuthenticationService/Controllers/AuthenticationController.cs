@@ -13,11 +13,11 @@ namespace AuthenticationService.Controllers
     //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class AuthenticationController : ControllerBase
     {
         private readonly IJWTManagerInterface iJWTManager;
 
-        public UserController(IJWTManagerInterface jWTManager)
+        public AuthenticationController(IJWTManagerInterface jWTManager)
         {
             iJWTManager = jWTManager;
         }
