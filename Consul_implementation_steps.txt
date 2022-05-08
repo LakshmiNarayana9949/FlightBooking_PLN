@@ -1,0 +1,26 @@
+Consul is used for the service discovery. It shows all the services available in the system at particular port number.
+
+1. Download consul, go to the directoty where consul exe file is available.
+2. There execute the command 'consul agent -dev'. It runs and gives the port number as '8500' which is default.
+3. Open browser and type 'localhost:8500', it gives all the available services.
+
+4. Create a class library project, include all the below references in itemgroup of csproj file.
+	<PackageReference Include="Consul" Version="1.6.10.4" />
+	<PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+	<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
+5. Create a static class, add the methods for configuring consul services.
+
+6. Add the above project reference in microservice project.
+7. In the startup.cs of microservice project, add the two methods which are created in the above project.
+8. In appsettings.json file, add the consul parameters as follows.
+	"Consul": {
+    "ServiceId": "UserDetailsService-id",
+    "ServiceName": "UserDetailsService",
+    "ServiceHost": "localhost",
+    "ServicePort": "55096",
+    "ConsulAddress": "http://localhost:8500"
+  }
+9. Now, start all the projects, in browser look for the URL '8500', it shows all the microservices available.

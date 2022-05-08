@@ -18,4 +18,8 @@
     <Folder Include="Properties\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Consul_ServiceDiscovery\Common.csproj" />
+  </ItemGroup>
+
 </Project>

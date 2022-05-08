@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common;
 
 namespace AuthenticationService
 {
@@ -29,6 +30,7 @@ namespace AuthenticationService
             services.AddControllers();
             services.AddSingleton<IJWTManagerInterface, JWTManagerImpl>();
             services.AddSwaggerGen();
+            services.AddConsulConfig(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +46,7 @@ namespace AuthenticationService
             app.UseAuthorization();
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.UseConsul(Configuration);
 
             app.UseEndpoints(endpoints =>
             {

@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Consul_ServiceDiscovery\Common.csproj" />
     <ProjectReference Include="..\UserDetailsService\UserDetailsService.csproj" />
   </ItemGroup>
 

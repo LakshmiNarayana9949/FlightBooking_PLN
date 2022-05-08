@@ -149,4 +149,8 @@ D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.genruntimeconfig.cache
+D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\bin\Debug\netcoreapp3.1\Consul.dll
+D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\bin\Debug\netcoreapp3.1\Common.dll
+D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\bin\Debug\netcoreapp3.1\Common.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.csproj.CopyComplete

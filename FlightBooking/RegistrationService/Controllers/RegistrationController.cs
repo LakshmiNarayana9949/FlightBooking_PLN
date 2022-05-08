@@ -27,7 +27,7 @@ namespace RegistrationService.Controllers
             try
             {
                 user.UserType = (int) CommonEnums.UserType.User;
-                bool emailAlreadyExists = IsEmailAlreadyExists(user.Email);
+                bool emailAlreadyExists = true;
                 if (!emailAlreadyExists)
                 {
                     using (var scope = new TransactionScope())
@@ -48,20 +48,20 @@ namespace RegistrationService.Controllers
             }
         }
 
-        public bool IsEmailAlreadyExists(string email)
-        {
-            try
-            {
-                List<UserModel> usersList = _iUserInterface.GetAllUsers().ToList().Where(a => a.Email.ToLower() == email.ToLower()).ToList();
-                if (usersList.Count() > 0)
-                    return true;
-                else
-                    return false;
-            }
-            catch(Exception ex)
-            {
-                return true;
-            }
-        }
+        //public bool IsEmailAlreadyExists(string email)
+        //{
+        //    try
+        //    {
+        //        List<UserModel> usersList = _iUserInterface.GetAllUsers().ToList().Where(a => a.Email.ToLower() == email.ToLower()).ToList();
+        //        if (usersList.Count() > 0)
+        //            return true;
+        //        else
+        //            return false;
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        return true;
+        //    }
+        //}
     }
 }

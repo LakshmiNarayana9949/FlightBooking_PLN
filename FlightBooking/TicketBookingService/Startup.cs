@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace TicketBookingService
 {
@@ -33,6 +34,7 @@ namespace TicketBookingService
             services.AddDbContext<TicketBookingDbcontext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
             services.AddTransient<ITicketBookingInterface, TicketBookingsImpl>();
             services.AddSwaggerGen();
+            services.AddConsulConfig(Configuration);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = "TestKey";
@@ -69,6 +71,7 @@ namespace TicketBookingService
 
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.UseConsul(Configuration);
 
             app.UseEndpoints(endpoints =>
             {

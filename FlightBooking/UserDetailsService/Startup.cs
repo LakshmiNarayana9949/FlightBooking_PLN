@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Common;
 
 namespace UserDetailsService
 {
@@ -33,6 +34,7 @@ namespace UserDetailsService
             services.AddDbContext<UserDetailsDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
             services.AddTransient<IUserInterface, UserImpl>();
             services.AddSwaggerGen();
+            services.AddConsulConfig(Configuration);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = "TestKey";
@@ -70,6 +72,7 @@ namespace UserDetailsService
 
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.UseConsul(Configuration);
 
             app.UseEndpoints(endpoints =>
             {

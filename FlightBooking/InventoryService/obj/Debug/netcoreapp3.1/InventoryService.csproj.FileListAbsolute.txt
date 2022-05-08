@@ -199,3 +199,8 @@ D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\I
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.genruntimeconfig.cache
+D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\bin\Debug\netcoreapp3.1\Consul.dll
+D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\bin\Debug\netcoreapp3.1\Common.dll
+D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\bin\Debug\netcoreapp3.1\Common.pdb
+D:\LN\FlightBooking_PLN\FlightBooking\InventoryService\obj\Debug\netcoreapp3.1\InventoryService.csproj.CopyComplete

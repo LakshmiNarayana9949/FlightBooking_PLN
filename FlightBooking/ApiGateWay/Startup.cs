@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace ApiGateWay
 {
@@ -47,7 +48,8 @@ namespace ApiGateWay
                     IssuerSigningKey = new SymmetricSecurityKey(key)
                 };
             });
-            services.AddOcelot();            
+            services.AddOcelot();
+            services.AddConsulConfig(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +58,7 @@ namespace ApiGateWay
             app.UseOcelot().Wait();
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.UseConsul(Configuration);
         }
     }
 }

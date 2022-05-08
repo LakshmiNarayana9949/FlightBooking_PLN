@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Common;
 
 namespace InventoryService
 {
@@ -34,6 +35,7 @@ namespace InventoryService
             services.AddTransient<IInventoryInterface, InventoryImpl>();
             services.AddTransient<IAirLineInterface, AirLineImpl>();
             services.AddSwaggerGen();
+            services.AddConsulConfig(Configuration);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = "TestKey";
@@ -71,6 +73,7 @@ namespace InventoryService
 
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.UseConsul(Configuration);
 
             app.UseEndpoints(endpoints =>
             {

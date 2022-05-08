@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = Consul_ServiceDiscovery
+build_property.ProjectDir = D:\LN\FlightBooking_PLN\FlightBooking\Consul_ServiceDiscovery\

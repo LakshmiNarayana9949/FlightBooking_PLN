@@ -199,3 +199,8 @@ D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.genruntimeconfig.cache
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Consul.dll
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Common.dll
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Common.pdb
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.csproj.CopyComplete

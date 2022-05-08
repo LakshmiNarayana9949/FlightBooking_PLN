@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using UserDetailsService.Models;
 using UserDetailsService.Services;
 using UserDetailsService.DBContext;
+using Common;
 
 namespace RegistrationService
 {
@@ -32,6 +33,7 @@ namespace RegistrationService
             services.AddDbContext<UserDetailsDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
             services.AddTransient<IUserInterface, UserImpl>();
             services.AddSwaggerGen();
+            services.AddConsulConfig(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +49,7 @@ namespace RegistrationService
 
             app.UseSwagger();
             app.UseSwaggerUI();
+            app.UseConsul(Configuration);
 
             app.UseEndpoints(endpoints =>
             {

@@ -2,15 +2,15 @@
   "Routes": [
     //Authentication.
     {
-      "DownstreamPathTemplate": "/api/user/authenticate",
+      "DownstreamPathTemplate": "/api/Authentication/authenticate",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 23489
+          "Port": 55094
         }
       ],
-      "UpstreamPathTemplate": "/api/gateway/user/authenticate",
+      "UpstreamPathTemplate": "/api/gateway/Authentication/authenticate",
       "UpstreamHttpMethod": [ "Post" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "TestKey",
@@ -26,7 +26,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 1162
+          "Port": 55097
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Register/RegisterNewUser",
@@ -45,7 +45,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 48865
+          "Port": 55096
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/UserDetails/GetAllUsers",
@@ -62,7 +62,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 48865
+          "Port": 55096
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/UserDetails/GetUserDetails",
@@ -81,7 +81,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 11308
+          "Port": 55102
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/GetAllInventories",
@@ -98,7 +98,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 11308
+          "Port": 55102
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/GetAllInventoriesWithSearch",
@@ -115,7 +115,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 11308
+          "Port": 55102
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/AddNewInventory",
@@ -132,7 +132,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 11308
+          "Port": 55102
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/AirLine/GetAllAirlines",
@@ -149,7 +149,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 11308
+          "Port": 55102
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/AirLine/AddNewAirLine",
@@ -168,7 +168,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 62554
+          "Port": 55100
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/BookTicket",
@@ -185,7 +185,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 62554
+          "Port": 55100
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/CancelTicket",
@@ -202,7 +202,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 62554
+          "Port": 55100
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/GetTicket",
@@ -219,7 +219,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 62554
+          "Port": 55100
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/GetAllTickets",
@@ -232,6 +232,6 @@
 
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:23488"
+    "BaseUrl": "http://localhost:55093"
   }
 }
