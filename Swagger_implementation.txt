@@ -1,0 +1,5 @@
+Swashbuckle.AspNetCore.Swagger
+Swashbuckle.AspNetCore.SwaggerUI
+Swashbuckle.AspNetCore.SwaggerGen
+
+Refer Startup.cs file any one microservice for implementation.

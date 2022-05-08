@@ -1,0 +1,26 @@
+This is used for implementing API gateway.
+If we have multiple microservices running on multiple port numbers, this API gateway useful to access all these microservices on one port number.
+
+1. In gateway project, add the below reference.
+	i. Ocelot
+2. In startup.cs file of this project, add the methods related to ocelot.
+3. Create a file called 'Ocelot.JSON', if not already there. In that file, create routes for the all the methods in all the services as follows.
+	{
+      "DownstreamPathTemplate": "/api/Authentication/authenticate",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 55094
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/Authentication/authenticate",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+	
+	"GlobalConfiguration": {
+		"BaseUrl": "http://localhost:55093"
+	}
+	
+	Here downstrem path is the original path to access that method, upstrem path is used to access the same method from the baseurl port from 
+	apigateway.

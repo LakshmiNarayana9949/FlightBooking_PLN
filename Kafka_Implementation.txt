@@ -1,0 +1,30 @@
+KAFKA is used to interact between two micro services.
+
+1. Download kafka zip file, extract that to a folder.
+2. In the extracted location, create a folder 'Zookeeper', give this folder path in 'zookeeper.properties' file in config folder.
+3.Create another folder 'kafka-Logs', give this folder path in 'server.properties' file in config folder.
+4. Now go to the bin/windows folder, execute the following commands in diferent commond prompt windows for the following operations.
+	
+	To start Zookeeper server
+	zookeeper-server-start.bat C:\kafka-bin\config\zookeeper.properties
+
+	To start Kafka server
+	kafka-server-start.bat C:\kafka-bin\config\server.properties
+
+	To create Topic
+	kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic temp-topic
+
+	To start Producer
+	kafka-console-producer.bat --broker-list localhost:9092 --topic temp-topic-cf
+
+	To start Consumer
+	kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic temp-topic-cf --from-beginning
+
+	To lis all the Topics
+	kafka-topics --zookeeper localhost:2181 --list
+
+5. Type something in the Producer window, that will reflects in the consumer window.
+
+<ItemGroup>
+<PackageReference Include="Confluent.Kafka" Version="1.4.0" />
+</ItemGroup>

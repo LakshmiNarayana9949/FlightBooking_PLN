@@ -1,0 +1,21 @@
+1. Create a project with ASP.Net core webapi.
+2. Add the following references to that project.
+	i. Microsoft.EntityFrameworkCore
+	ii. Microsoft.entityframeworkcore.tools
+	iii. Microsoft.entityframeworkcore.sqlserver
+3. Create a folder Models, create all the required classes in that folder.
+4. Create a folder DBContext, in that add a class inherited from DbContext class. In that class, create a DBSet of required models.
+5. Execute the the following commands one by one package manager console
+	i. add-migration 'migration name'
+	ii. update-database
+6. After this, it will create a migrations folder with the migration name we have given.
+7. Create a folder 'Services'.
+	i. Create an Interface with the methods we need in this service.
+	ii. Create a class and implement the above interface.
+	iii. Create a constructor to the class using DBContext object.
+8. Create a controller file, create a constructor for the controller by implementing the Interface.
+9. Now the listo of db records can be accessed in this controller.
+10. In Startup.cs file of the project, add one scope method by mentioning the interface and class names.
+ex: Transient, Singleton...etc
+
+Refer Inventoriesservice proect for reference. 
