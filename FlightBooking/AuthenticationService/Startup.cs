@@ -12,6 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Common;
+using AuthenticationService.DBContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuthenticationService
 {
@@ -28,7 +30,8 @@ namespace AuthenticationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSingleton<IJWTManagerInterface, JWTManagerImpl>();
+            services.AddDbContext<AuthenticationServiceDbContext>(o => o.UseSqlServer(Configuration.GetConnectionString("FlightBookingDb")));
+            services.AddTransient<IJWTManagerInterface, JWTManagerImpl>();
             services.AddSwaggerGen();
             services.AddConsulConfig(Configuration);
         }

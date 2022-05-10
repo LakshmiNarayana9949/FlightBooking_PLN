@@ -7,7 +7,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55094
+          "Port": 60008
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Authentication/authenticate",
@@ -26,7 +26,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55097
+          "Port": 60006
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Register/RegisterNewUser",
@@ -45,7 +45,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55096
+          "Port": 60010
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/UserDetails/GetAllUsers",
@@ -62,7 +62,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55096
+          "Port": 60010
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/UserDetails/GetUserDetails",
@@ -81,7 +81,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55102
+          "Port": 60007
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/GetAllInventories",
@@ -98,7 +98,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55102
+          "Port": 60007
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/GetAllInventoriesWithSearch",
@@ -115,7 +115,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55102
+          "Port": 60007
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/AddNewInventory",
@@ -132,7 +132,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55102
+          "Port": 60007
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/AirLine/GetAllAirlines",
@@ -149,7 +149,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55102
+          "Port": 60007
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/AirLine/AddNewAirLine",
@@ -168,7 +168,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55100
+          "Port": 60009
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/BookTicket",
@@ -185,7 +185,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55100
+          "Port": 60009
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/CancelTicket",
@@ -202,7 +202,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55100
+          "Port": 60009
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/GetTicket",
@@ -219,7 +219,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 55100
+          "Port": 60009
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/GetAllTickets",
@@ -232,6 +232,6 @@
 
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:55093"
+    "BaseUrl": "http://localhost:59972"
   }
 }

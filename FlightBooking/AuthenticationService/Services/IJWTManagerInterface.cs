@@ -8,6 +8,7 @@ namespace AuthenticationService.Services
 {
     public interface IJWTManagerInterface
     {
-        Tokens Authenticate(User users);
+        Tokens Authenticate(AuthenticationUser users);
+        List<AuthenticationUser> GetAllUsers();
     }
 }

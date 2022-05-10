@@ -8,33 +8,24 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AuthenticationService.DBContext;
 
 namespace AuthenticationService.Services
 {
     public class JWTManagerImpl : IJWTManagerInterface
     {
-        Dictionary<string, string> UserRecords = new Dictionary<string, string>
-        {
-            { "user1","password1"},
-             { "user2","password2"}
-
-        };
-
         private readonly IConfiguration configuartion;
+        private readonly AuthenticationServiceDbContext _authenticationServiceDbContext;
 
-        public JWTManagerImpl(IConfiguration iconfiguration)
+        public JWTManagerImpl(IConfiguration iconfiguration, AuthenticationServiceDbContext authenticationServiceDbContext)
         {
             configuartion = iconfiguration;
+            _authenticationServiceDbContext = authenticationServiceDbContext;
         }
 
         
-        public Tokens Authenticate(User users)
+        public Tokens Authenticate(AuthenticationUser user)
         {
-            if(!UserRecords.Any(x=>x.Key==users.Name && x.Value == users.Password))
-            {
-                return null;
-            }
-
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.UTF8.GetBytes(configuartion["JWT:Key"]);
 
@@ -42,13 +33,18 @@ namespace AuthenticationService.Services
             {
                 Subject=new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name,users.Name)
+                    new Claim(ClaimTypes.Name,user.Email)
                 }),
                 Expires=DateTime.UtcNow.AddMinutes(10),
                 SigningCredentials=new SigningCredentials(new SymmetricSecurityKey(tokenKey),SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return new Tokens { Token = tokenHandler.WriteToken(token) };
+        }
+
+        public List<AuthenticationUser> GetAllUsers()
+        {
+            return _authenticationServiceDbContext.AuthenticationUsers.ToList();
         }
     }
 }

@@ -121,7 +121,7 @@ namespace TicketBookingService.Controllers
             }
         }        
 
-        public string GenerateticketID()
+        private string GenerateticketID()
         {
             int count = _iTicketBookingInterface.GetAllTickets().ToList().Count();
             string strSecretCode = string.Empty;
@@ -147,7 +147,7 @@ namespace TicketBookingService.Controllers
             }
 
         }
-        public string GenerateBookingID()
+        private string GenerateBookingID()
         {
             int count = _iTicketBookingInterface.GetAllTickets().ToList().Count();
             string strSecretCode = string.Empty;

@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace AuthenticationService.Models
 {
-    public class User
+    public class AuthenticationUser
     {
-        public string Name { get; set; }
+        [Key]
+        public string Email { get; set; }
         public string Password { get; set; }
     }
 }

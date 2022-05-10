@@ -138,6 +138,7 @@ D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\TicketBookingService.runtimeconfig.dev.json
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\TicketBookingService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\TicketBookingService.pdb
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Consul.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Humanizer.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -172,6 +173,7 @@ D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
@@ -185,6 +187,8 @@ D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Common.dll
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Common.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.csproj.AssemblyReference.cache
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.GeneratedMSBuildEditorConfig.editorconfig
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.AssemblyInfoInputs.cache
@@ -196,11 +200,7 @@ D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\staticwebassets\TicketBookingService.StaticWebAssets.xml
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\scopedcss\bundle\TicketBookingService.styles.css
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.RazorTargetAssemblyInfo.cache
+D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.csproj.CopyComplete
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.genruntimeconfig.cache
-D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Consul.dll
-D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
-D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Common.dll
-D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\bin\Debug\netcoreapp3.1\Common.pdb
-D:\LN\FlightBooking_PLN\FlightBooking\TicketBookingService\obj\Debug\netcoreapp3.1\TicketBookingService.csproj.CopyComplete

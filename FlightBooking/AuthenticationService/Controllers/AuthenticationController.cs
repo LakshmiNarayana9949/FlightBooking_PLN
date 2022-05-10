@@ -22,24 +22,33 @@ namespace AuthenticationService.Controllers
             iJWTManager = jWTManager;
         }
 
-        [HttpGet]
-        [Route("GetAllUsers")]
-        public List<string> GetAllUsers()
-        {
-            var users = new List<string>();
-            return users;
-        }
         [AllowAnonymous]
         [HttpPost]
         [Route("Authenticate")]
-        public IActionResult Authenticate(User userdata)
+        public IActionResult Authenticate(AuthenticationUser user)
         {
-            var token = iJWTManager.Authenticate(userdata);
-            if (token == null)
+            try
             {
-                return Unauthorized();
+                List<AuthenticationUser> users = iJWTManager.GetAllUsers().Where(a => a.Email.ToLower() == user.Email.ToLower()
+                                                                                && a.Password == user.Password).ToList();
+                if (users.Count() > 0)//User found in DB
+                {
+                    var token = iJWTManager.Authenticate(user);
+                    if (token == null)
+                    {
+                        return Unauthorized();
+                    }
+                    return Ok(token);
+                }
+                else//User not ther in DB.
+                {
+                    return BadRequest("Invalid Email or Password");
+                }
             }
-            return Ok(token);
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
