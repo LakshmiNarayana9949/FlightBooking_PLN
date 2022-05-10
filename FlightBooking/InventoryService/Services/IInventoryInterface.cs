@@ -11,5 +11,6 @@ namespace InventoryService.Services
         void PlanInventory(Inventory inventory);
         List<Inventory> ShowInventories();
         void CancelInventory(int id);
+        void EditInventory(Inventory inventory);
     }
 }

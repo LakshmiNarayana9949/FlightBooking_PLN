@@ -12,7 +12,7 @@ namespace TicketBookingService.Models
         public int Id { get; set; }
         public string BookingID { set; get; }
         public string TicketID { set; get; }        
-        public int FlightId { set; get; }
+        public string FlightNumber { set; get; }
         public DateTime DateOfJourney { set; get; }
         public string FromPlace { set; get; }
         public string ToPlace { set; get; }
@@ -24,6 +24,7 @@ namespace TicketBookingService.Models
         public string SeatNumber { set; get; }
         public int Status { set; get; }
         public string StatusStr { set; get; }
+        public int SeatType { get; set; }
         public int CreatedBy { set; get; }
         public DateTime CreatedOn { set; get; }
         public int ModifiedBy { set; get; }

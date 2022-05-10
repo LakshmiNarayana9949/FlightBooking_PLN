@@ -44,8 +44,8 @@ namespace TicketBookingService.Migrations
                     b.Property<DateTime>("DateOfJourney")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FlightId")
-                        .HasColumnType("int");
+                    b.Property<string>("FlightNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FromPlace")
                         .HasColumnType("nvarchar(max)");
@@ -64,6 +64,9 @@ namespace TicketBookingService.Migrations
 
                     b.Property<string>("SeatNumber")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SeatType")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");

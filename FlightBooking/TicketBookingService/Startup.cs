@@ -15,6 +15,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
+using MassTransit;
+using MassTransit.KafkaIntegration;
+using TicketBookingService.Events;
 
 namespace TicketBookingService
 {
@@ -55,6 +58,19 @@ namespace TicketBookingService
                     IssuerSigningKey = new SymmetricSecurityKey(key)
                 };
             });
+            services.AddMassTransit(a =>
+            {
+                a.UsingRabbitMq((context, cfg) => cfg.ConfigureEndpoints(context));
+                a.AddRider(rider =>
+                {
+                    rider.AddProducer<TicketBookingEvent>(nameof(TicketBookingEvent));
+                    rider.UsingKafka((context, k) =>
+                    {
+                        k.Host("localhost:9092");
+                    });
+                });
+            });
+            services.AddMassTransitHostedService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

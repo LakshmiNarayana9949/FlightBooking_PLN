@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using System.Transactions;
 
 namespace InventoryService.Controllers
 {
@@ -41,9 +42,25 @@ namespace InventoryService.Controllers
         [Authorize]
         [HttpPost]
         [Route("AddNewInventory")]
-        public void AddNewInventory(Inventory inventory)
+        public ActionResult AddNewInventory(Inventory inventory)
         {
-            _inventory.PlanInventory(inventory);
+            try
+            {
+                inventory.CreatedBy = 2; //Need to save this in session once user login.            
+                inventory.ModifiedBy = 2; //Need to save this in session once user login.
+                inventory.CreatedOn = DateTime.Now;
+                inventory.ModifiedOn = DateTime.Now;
+                using (var scope = new TransactionScope())
+                {
+                    _inventory.PlanInventory(inventory);
+                    scope.Complete();
+                    return Ok("Inventory created successfully.");
+                }
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

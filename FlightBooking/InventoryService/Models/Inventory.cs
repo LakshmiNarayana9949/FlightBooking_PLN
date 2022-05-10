@@ -10,7 +10,7 @@ namespace InventoryService.Models
     {
         [Key]
         public int InventoryId { get; set; }        
-        public int FlightNumber { get; set; }
+        public string FlightNumber { get; set; }
         public int AirLineId { get; set; }
         public string FromPlace { get; set; }
         public string ToPlace { get; set; }
@@ -22,7 +22,7 @@ namespace InventoryService.Models
         public int NBClassCount { get; set; }
         public int TicketCost { get; set; }
         public int Rows { get; set; }
-        public int Meal { get; set; }
+        public int MealType { get; set; }
         public int CreatedBy { set; get; }
         public DateTime CreatedOn { set; get; }
         public int ModifiedBy { set; get; }

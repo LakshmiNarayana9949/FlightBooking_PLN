@@ -107,8 +107,8 @@ namespace InventoryService.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("FlightNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("FlightNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FromPlace")
                         .HasColumnType("nvarchar(max)");
@@ -116,7 +116,7 @@ namespace InventoryService.Migrations
                     b.Property<string>("Instrument")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Meal")
+                    b.Property<int>("MealType")
                         .HasColumnType("int");
 
                     b.Property<int>("ModifiedBy")

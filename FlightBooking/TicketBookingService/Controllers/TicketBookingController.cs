@@ -9,6 +9,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
 using TicketBookingService.Common;
+using TicketBookingService.Events;
+using MassTransit.KafkaIntegration;
+
 
 namespace TicketBookingService.Controllers
 {
@@ -19,17 +22,20 @@ namespace TicketBookingService.Controllers
         const string TICKET_STATUS_BOOKED = "Booked";
         const string TICKET_STATUS_CANCELLED = "Cancelled";
         public readonly ITicketBookingInterface _iTicketBookingInterface;
-        public TicketBookingController(ITicketBookingInterface iTicketBookingInterface)
+        private ITopicProducer<TicketBookingEvent> _iTopicProducer;
+        public TicketBookingController(ITicketBookingInterface iTicketBookingInterface, ITopicProducer<TicketBookingEvent> iTopicProducer)
         {
             _iTicketBookingInterface = iTicketBookingInterface;
+            _iTopicProducer = iTopicProducer;
         }
 
         [Authorize]
         [HttpPost]
         [Route("BookTicket")]
-        public IActionResult BookTicket([FromBody] List<Ticket> tickets)
+        public async Task<ActionResult> BookTicket([FromBody] List<Ticket> tickets)
         {
             string bookingId = "";
+            int numberOfTickets = tickets.Count();
             try
             {
                 bookingId = GenerateBookingID();
@@ -49,12 +55,21 @@ namespace TicketBookingService.Controllers
                     using (var scope = new TransactionScope())
                     {
                         _iTicketBookingInterface.BookNewTicket(ticket);
-                        scope.Complete();                       
+
+                        scope.Complete();
+                        await _iTopicProducer.Produce(new TicketBookingEvent
+                        {
+                            FlightNumber = ticket.FlightNumber,
+                            FromPlace = ticket.FromPlace,
+                            ToPlace = ticket.ToPlace,
+                            NumberOfTickets = numberOfTickets,
+                            SeatType = ticket.SeatType
+                        });                       
                     }
                 }
                 return Ok("Your ticket(s) booked successfully with booking id " + bookingId);
             }
-            catch
+            catch(Exception ex)
             {
                 return BadRequest();
             }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace InventoryService.Services
 {
@@ -32,6 +33,12 @@ namespace InventoryService.Services
         public void save()
         {
             _inventoryDbContext.SaveChanges();
+        }
+
+        public void EditInventory(Inventory inventory)
+        {
+            _inventoryDbContext.Entry(inventory).State = EntityState.Modified;
+            save();
         }
     }
 }
