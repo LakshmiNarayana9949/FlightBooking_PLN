@@ -3,11 +3,11 @@
     //Authentication.
     {
       "DownstreamPathTemplate": "/api/Authentication/authenticate",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60008
+          "Port": 44357
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Authentication/authenticate",
@@ -22,11 +22,11 @@
     //Adds new user to database.
     {
       "DownstreamPathTemplate": "/api/Register/RegisterNewUser",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60006
+          "Port": 44361
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Register/RegisterNewUser",
@@ -41,11 +41,11 @@
     //Gets all existing users.
     {
       "DownstreamPathTemplate": "/api/UserDetails/GetAllUsers",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60010
+          "Port": 44315
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/UserDetails/GetAllUsers",
@@ -58,11 +58,11 @@
     //Gets user details using userid.
     {
       "DownstreamPathTemplate": "/api/UserDetails/GetUserDetails",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60010
+          "Port": 44315
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/UserDetails/GetUserDetails",
@@ -77,11 +77,11 @@
     //Gets all Inventories.
     {
       "DownstreamPathTemplate": "/api/Inventory/GetAllInventories",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60007
+          "Port": 44349
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/GetAllInventories",
@@ -94,11 +94,11 @@
     //Gets all inventories with search filters
     {
       "DownstreamPathTemplate": "/api/Inventory/GetAllInventoriesWithSearch",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60007
+          "Port": 44349
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/GetAllInventoriesWithSearch",
@@ -111,11 +111,11 @@
     //Adds new Inventory
     {
       "DownstreamPathTemplate": "/api/Inventory/AddNewInventory",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60007
+          "Port": 44349
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/Inventory/AddNewInventory",
@@ -128,11 +128,11 @@
     //Gets all AirLines
     {
       "DownstreamPathTemplate": "/api/AirLine/GetAllAirlines",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60007
+          "Port": 44349
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/AirLine/GetAllAirlines",
@@ -145,11 +145,11 @@
     //Adds new AirLine
     {
       "DownstreamPathTemplate": "/api/AirLine/AddNewAirLine",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60007
+          "Port": 44349
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/AirLine/AddNewAirLine",
@@ -164,11 +164,11 @@
     //Books new ticket.
     {
       "DownstreamPathTemplate": "/api/TicketBooking/BookTicket",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60009
+          "Port": 44340
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/BookTicket",
@@ -181,11 +181,11 @@
     //Cancel a ticket.
     {
       "DownstreamPathTemplate": "/api/TicketBooking/CancelTicket",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60009
+          "Port": 44340
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/CancelTicket",
@@ -198,11 +198,11 @@
     //Gets one ticket using ticket id.
     {
       "DownstreamPathTemplate": "/api/TicketBooking/GetTicket",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60009
+          "Port": 44340
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/GetTicket",
@@ -215,11 +215,11 @@
     //Gets all tickets.
     {
       "DownstreamPathTemplate": "/api/TicketBooking/GetAllTickets",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 60009
+          "Port": 44340
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/TicketBooking/GetAllTickets",
@@ -232,6 +232,6 @@
 
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:59972"
+    "BaseUrl": "https://localhost:44338"
   }
 }

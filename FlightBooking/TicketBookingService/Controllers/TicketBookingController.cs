@@ -36,6 +36,10 @@ namespace TicketBookingService.Controllers
         {
             string bookingId = "";
             int numberOfTickets = tickets.Count();
+            string flightNumber = tickets[0].FlightNumber;
+            string fromPlace = tickets[0].FromPlace;
+            string toPlace = tickets[0].ToPlace;
+            int seatType = tickets[0].SeatType;
             try
             {
                 bookingId = GenerateBookingID();
@@ -56,22 +60,22 @@ namespace TicketBookingService.Controllers
                     {
                         _iTicketBookingInterface.BookNewTicket(ticket);
 
-                        scope.Complete();
-                        await _iTopicProducer.Produce(new TicketBookingEvent
-                        {
-                            FlightNumber = ticket.FlightNumber,
-                            FromPlace = ticket.FromPlace,
-                            ToPlace = ticket.ToPlace,
-                            NumberOfTickets = numberOfTickets,
-                            SeatType = ticket.SeatType
-                        });                       
+                        scope.Complete();                     
                     }
                 }
+                await _iTopicProducer.Produce(new TicketBookingEvent
+                {
+                    FlightNumber = flightNumber,
+                    FromPlace = fromPlace,
+                    ToPlace = toPlace,
+                    NumberOfTickets = numberOfTickets,
+                    SeatType = seatType
+                });
                 return Ok("Your ticket(s) booked successfully with booking id " + bookingId);
             }
             catch(Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
 

@@ -44,11 +44,11 @@ namespace AuthenticationService
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseSwagger();
-            app.UseSwaggerUI();
             app.UseConsul(Configuration);
 
             app.UseEndpoints(endpoints =>
