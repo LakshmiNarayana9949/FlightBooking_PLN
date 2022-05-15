@@ -72,6 +72,23 @@
         "AllowedScopes": []
       }
     },
+    //Gets user details using email.
+    {
+      "DownstreamPathTemplate": "/api/UserDetails/GetUserDetailsFromEmail",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44315
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/UserDetails/GetUserDetailsFromEmail",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "TestKey",
+        "AllowedScopes": []
+      }
+    },
 
     //Inventories service.
     //Gets all Inventories.

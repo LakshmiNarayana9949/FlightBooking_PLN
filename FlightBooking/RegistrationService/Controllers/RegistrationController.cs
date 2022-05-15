@@ -27,6 +27,7 @@ namespace RegistrationService.Controllers
             try
             {
                 user.UserType = (int) CommonEnums.UserType.User;
+                user.CreatedOn = DateTime.Now;
                 bool emailAlreadyExists = IsEmailAlreadyExists(user.Email);
                 if (!emailAlreadyExists)
                 {
@@ -39,7 +40,7 @@ namespace RegistrationService.Controllers
                 }
                 else
                 {
-                    return BadRequest("Email already exists");
+                    return Ok("Email already exists");
                 }
             }
             catch(Exception ex)
@@ -48,7 +49,7 @@ namespace RegistrationService.Controllers
             }
         }
 
-        public bool IsEmailAlreadyExists(string email)
+        private bool IsEmailAlreadyExists(string email)
         {
             try
             {

@@ -150,7 +150,7 @@ D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\staticwebassets\RegistrationService.StaticWebAssets.xml
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\scopedcss\bundle\RegistrationService.styles.css
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.RazorTargetAssemblyInfo.cache
-D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.csproj.CopyComplete
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.genruntimeconfig.cache
+D:\LN\FlightBooking_PLN\FlightBooking\RegistrationService\obj\Debug\netcoreapp3.1\RegistrationService.csproj.CopyComplete

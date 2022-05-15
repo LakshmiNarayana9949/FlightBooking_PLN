@@ -67,7 +67,8 @@ namespace UserDetailsService.Controllers
         /// This method is for finding the user details from userid.
         /// </summary>
         /// <param name="userId"></param>
-        /// <returns></returns>       
+        /// <returns></returns> 
+        [Authorize]
         [HttpGet]
         [Route("GetUserDetails")]
         public UserModel GetUserDetails(int userId)
@@ -77,6 +78,29 @@ namespace UserDetailsService.Controllers
                 return _userRepository.GetUserDetails(userId);      
             }
             catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("GetUserDetailsFromEmail")]
+        public UserModel GetUserDetails(string email)
+        {
+            try
+            {
+                List<UserModel> allUsers = _userRepository.GetAllUsers().ToList().Where(a => a.Email.ToLower() == email.ToLower()).ToList();
+                if(allUsers.Count() > 0)
+                {
+                    return allUsers[0];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
             {
                 return null;
             }

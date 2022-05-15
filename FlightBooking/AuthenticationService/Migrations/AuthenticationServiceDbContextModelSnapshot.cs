@@ -26,6 +26,9 @@ namespace AuthenticationService.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Email");
 
                     b.ToTable("AuthenticationUsers");

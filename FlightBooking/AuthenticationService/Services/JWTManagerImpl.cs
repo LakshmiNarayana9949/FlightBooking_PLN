@@ -28,6 +28,8 @@ namespace AuthenticationService.Services
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.UTF8.GetBytes(configuartion["JWT:Key"]);
+            AuthenticationUser UserFromDB = GetAllUsers().Where(a => a.Email.ToLower() == user.Email.ToLower()
+                                                                                && a.Password == user.Password).ToList()[0];
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {

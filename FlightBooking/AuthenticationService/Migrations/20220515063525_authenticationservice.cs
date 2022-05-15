@@ -2,7 +2,7 @@
 
 namespace AuthenticationService.Migrations
 {
-    public partial class AuthenticationService : Migration
+    public partial class authenticationservice : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,6 +11,7 @@ namespace AuthenticationService.Migrations
                 columns: table => new
                 {
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
