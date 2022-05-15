@@ -70,7 +70,7 @@ namespace UserDetailsService.Controllers
         /// <returns></returns> 
         [Authorize]
         [HttpGet]
-        [Route("GetUserDetails")]
+        [Route("GetUserDetails/{userId}")]
         public UserModel GetUserDetails(int userId)
         {
             try
@@ -83,28 +83,28 @@ namespace UserDetailsService.Controllers
             }
         }
 
-        [Authorize]
-        [HttpGet]
-        [Route("GetUserDetailsFromEmail")]
-        public UserModel GetUserDetails(string email)
-        {
-            try
-            {
-                List<UserModel> allUsers = _userRepository.GetAllUsers().ToList().Where(a => a.Email.ToLower() == email.ToLower()).ToList();
-                if(allUsers.Count() > 0)
-                {
-                    return allUsers[0];
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
+        //[Authorize]
+        //[HttpGet]
+        //[Route("GetUserDetailsFromEmail/{email}")]
+        //public UserModel GetUserDetailsFromEmail(string email)
+        //{
+        //    try
+        //    {
+        //        List<UserModel> allUsers = _userRepository.GetAllUsers().ToList().Where(a => a.Email.ToLower() == email.ToLower()).ToList();
+        //        if(allUsers.Count() > 0)
+        //        {
+        //            return allUsers[0];
+        //        }
+        //        else
+        //        {
+        //            return null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //}
 
         /// <summary>
         /// This method is for validating the user and generate token.

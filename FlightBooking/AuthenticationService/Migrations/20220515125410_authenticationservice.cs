@@ -12,6 +12,7 @@ namespace AuthenticationService.Migrations
                 {
                     Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
+                    UserType = table.Column<int>(type: "int", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>

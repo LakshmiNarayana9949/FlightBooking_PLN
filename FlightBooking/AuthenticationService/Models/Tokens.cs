@@ -9,5 +9,7 @@ namespace AuthenticationService.Models
     {
         public string Token { get; set; }
         public string RefreshToken { get; set; }
+        public int UserId { get; set; }
+        public int UserType { get; set; }
     }
 }

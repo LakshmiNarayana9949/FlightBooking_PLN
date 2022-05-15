@@ -42,7 +42,7 @@ namespace AuthenticationService.Controllers
                 }
                 else//User not ther in DB.
                 {
-                    return BadRequest("Invalid Email or Password");
+                    return Ok("Invalid Email or Password");
                 }
             }
             catch(Exception ex)

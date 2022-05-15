@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuthenticationService.Migrations
 {
     [DbContext(typeof(AuthenticationServiceDbContext))]
-    [Migration("20220515063525_authenticationservice")]
+    [Migration("20220515125410_authenticationservice")]
     partial class authenticationservice
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,6 +29,9 @@ namespace AuthenticationService.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserType")
                         .HasColumnType("int");
 
                     b.HasKey("Email");

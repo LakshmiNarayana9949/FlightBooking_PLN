@@ -9,6 +9,7 @@ namespace AuthenticationService.Models
     public class AuthenticationUser
     {
         public int UserId { get; set; }
+        public int UserType { get; set; }
         [Key]
     
         public string Email { get; set; }
