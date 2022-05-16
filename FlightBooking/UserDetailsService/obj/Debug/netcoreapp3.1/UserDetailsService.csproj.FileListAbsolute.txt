@@ -137,6 +137,7 @@ D:\LN\FlightBooking_PLN\FlightBooking\UserDetailsService\obj\Debug\netcoreapp3.1
 D:\LN\FlightBooking_PLN\FlightBooking\UserDetailsService\obj\Debug\netcoreapp3.1\staticwebassets\UserDetailsService.StaticWebAssets.xml
 D:\LN\FlightBooking_PLN\FlightBooking\UserDetailsService\obj\Debug\netcoreapp3.1\scopedcss\bundle\UserDetailsService.styles.css
 D:\LN\FlightBooking_PLN\FlightBooking\UserDetailsService\obj\Debug\netcoreapp3.1\UserDetailsService.RazorTargetAssemblyInfo.cache
+D:\LN\FlightBooking_PLN\FlightBooking\UserDetailsService\obj\Debug\netcoreapp3.1\UserDetailsService.csproj.CopyComplete
 D:\LN\FlightBooking_PLN\FlightBooking\UserDetailsService\obj\Debug\netcoreapp3.1\UserDetailsService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\UserDetailsService\obj\Debug\netcoreapp3.1\UserDetailsService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\UserDetailsService\obj\Debug\netcoreapp3.1\UserDetailsService.genruntimeconfig.cache

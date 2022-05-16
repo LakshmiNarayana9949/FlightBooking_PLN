@@ -131,6 +131,7 @@ D:\LN\FlightBooking_PLN\FlightBooking\AuthenticationService\obj\Debug\netcoreapp
 D:\LN\FlightBooking_PLN\FlightBooking\AuthenticationService\obj\Debug\netcoreapp3.1\staticwebassets\AuthenticationService.StaticWebAssets.xml
 D:\LN\FlightBooking_PLN\FlightBooking\AuthenticationService\obj\Debug\netcoreapp3.1\scopedcss\bundle\AuthenticationService.styles.css
 D:\LN\FlightBooking_PLN\FlightBooking\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.RazorTargetAssemblyInfo.cache
+D:\LN\FlightBooking_PLN\FlightBooking\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.csproj.CopyComplete
 D:\LN\FlightBooking_PLN\FlightBooking\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.dll
 D:\LN\FlightBooking_PLN\FlightBooking\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.pdb
 D:\LN\FlightBooking_PLN\FlightBooking\AuthenticationService\obj\Debug\netcoreapp3.1\AuthenticationService.genruntimeconfig.cache
