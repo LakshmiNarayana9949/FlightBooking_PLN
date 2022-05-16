@@ -10,6 +10,7 @@ namespace TicketBookingService.Models
     public class Ticket
     {
         public int Id { get; set; }
+        public int UserId { get; set; }
         public string BookingID { set; get; }
         public string TicketID { set; get; }        
         public string FlightNumber { set; get; }

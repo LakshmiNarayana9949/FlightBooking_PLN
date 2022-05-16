@@ -22,7 +22,7 @@ namespace InventoryService.Controllers
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpPost]
         [Route("AddNewAirLine")]
         public IActionResult AddNewAirLine(AirLine airLine)
         {

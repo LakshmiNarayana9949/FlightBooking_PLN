@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using System.Transactions;
+using InventoryService.DBContext;
 
 namespace InventoryService.Controllers
 {
@@ -15,10 +16,13 @@ namespace InventoryService.Controllers
     [ApiController]
     public class InventoryController : ControllerBase
     {
-        public readonly IInventoryInterface _inventory;
-        public InventoryController(IInventoryInterface inventory)
+        private readonly IInventoryInterface _inventory;
+        private readonly InventoryDbContext _inventoryDbContext;
+
+        public InventoryController(IInventoryInterface inventory, InventoryDbContext inventoryDbContext)
         {
             _inventory = inventory;
+            _inventoryDbContext = inventoryDbContext;
         }
 
         [Authorize]
@@ -26,17 +30,57 @@ namespace InventoryService.Controllers
         [Route("GetAllInventories")]
         public IActionResult GetAllInventories()
         {
-            return Ok(_inventory.ShowInventories());
+            var inventories = (from i in _inventoryDbContext.Inventories
+                             join a in _inventoryDbContext.AirLines
+                             on i.AirLineId equals a.AirlineId
+                             select new {inventoryId = i.InventoryId,
+                                        flightNumber = i.FlightNumber,
+                                        airLineId =  a.AirlineId,
+                                        airLineName = a.Name,
+                                        fromPlace = i.FromPlace,
+                                        toPlace = i.ToPlace,
+                                        startDate = i.StartDate,
+                                        endDate = i.EndDate,
+                                        scheduledDays = i.ScheduledDays,
+                                        instrument = i.Instrument,
+                                        bClassCount = i.BClassCount,
+                                        nBClassCount = i.NBClassCount,
+                                        ticketCost = i.TicketCost,
+                                        rows = i.Rows,
+                                        mealType = i.MealType}).ToList();
+            return Ok(inventories);
         }
 
         [Authorize]
         [HttpPost]
         [Route("GetAllInventoriesWithSearch")]
-        public IActionResult GetAllInventoriesWithSearch(DateTime fromDate, DateTime toDate, string fromPlace, string toPlace)
+        public IActionResult GetAllInventoriesWithSearch(DateTime fromDate, string fromPlace, string toPlace)
         {
-            return Ok(_inventory.ShowInventories().Where(a => a.StartDate >= fromDate && a.EndDate <= toDate &&
-                                                                a.FromPlace.ToLower().Contains(fromPlace.ToLower()) &&
-                                                                a.ToPlace.ToLower().Contains(toPlace.ToLower())));
+            var inventories = (from i in _inventoryDbContext.Inventories
+                               join a in _inventoryDbContext.AirLines
+                               on i.AirLineId equals a.AirlineId
+                               where i.StartDate >= fromDate &&
+                                     i.FromPlace.ToLower().Contains(fromPlace.ToLower()) &&
+                                     i.ToPlace.ToLower().Contains(toPlace.ToLower())
+                               select new
+                               {
+                                   inventoryId = i.InventoryId,
+                                   flightNumber = i.FlightNumber,
+                                   airLineId = a.AirlineId,
+                                   airLineName = a.Name,
+                                   fromPlace = i.FromPlace,
+                                   toPlace = i.ToPlace,
+                                   startDate = i.StartDate,
+                                   endDate = i.EndDate,
+                                   scheduledDays = i.ScheduledDays,
+                                   instrument = i.Instrument,
+                                   bClassCount = i.BClassCount,
+                                   nBClassCount = i.NBClassCount,
+                                   ticketCost = i.TicketCost,
+                                   rows = i.Rows,
+                                   mealType = i.MealType
+                               }).ToList();
+            return Ok(inventories);
         }
 
         [Authorize]

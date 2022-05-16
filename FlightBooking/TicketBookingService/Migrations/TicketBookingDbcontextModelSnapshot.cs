@@ -80,6 +80,9 @@ namespace TicketBookingService.Migrations
                     b.Property<string>("ToPlace")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Tickets");

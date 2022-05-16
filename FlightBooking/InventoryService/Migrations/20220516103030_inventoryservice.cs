@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InventoryService.Migrations
 {
-    public partial class inventorysesrvice : Migration
+    public partial class inventoryservice : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,6 +53,7 @@ namespace InventoryService.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FlightNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AirLineId = table.Column<int>(type: "int", nullable: false),
+                    AirlineName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FromPlace = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ToPlace = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),

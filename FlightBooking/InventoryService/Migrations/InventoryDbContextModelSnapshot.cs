@@ -95,6 +95,9 @@ namespace InventoryService.Migrations
                     b.Property<int>("AirLineId")
                         .HasColumnType("int");
 
+                    b.Property<string>("AirlineName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("BClassCount")
                         .HasColumnType("int");
 

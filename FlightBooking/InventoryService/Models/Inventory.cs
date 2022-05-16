@@ -12,6 +12,7 @@ namespace InventoryService.Models
         public int InventoryId { get; set; }        
         public string FlightNumber { get; set; }
         public int AirLineId { get; set; }
+        public string AirlineName { get; set; }
         public string FromPlace { get; set; }
         public string ToPlace { get; set; }
         public DateTime StartDate { get; set; }
