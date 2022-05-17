@@ -52,8 +52,9 @@ namespace TicketBookingService.Controllers
                     ticket.BookingID = bookingId;
                     ticket.Status = (int)CommonEnums.BookingStatus.Booked;
                     ticket.StatusStr = TICKET_STATUS_BOOKED;
-                    ticket.CreatedBy = 2; //Need to save this in session once user login.
-                    ticket.ModifiedBy = 2; //Need to save this in session once user login.
+                    ticket.UserId = ticket.CreatedBy;
+                    //ticket.CreatedBy = 2; //Need to save this in session once user login.
+                    //ticket.ModifiedBy = 2; //Need to save this in session once user login.
                     ticket.CreatedOn = DateTime.Now;
                     ticket.ModifiedOn = DateTime.Now;
                     using (var scope = new TransactionScope())
@@ -63,14 +64,14 @@ namespace TicketBookingService.Controllers
                         scope.Complete();                     
                     }
                 }
-                await _iTopicProducer.Produce(new TicketBookingEvent
-                {
-                    FlightNumber = flightNumber,
-                    FromPlace = fromPlace,
-                    ToPlace = toPlace,
-                    NumberOfTickets = numberOfTickets,
-                    SeatType = seatType
-                });
+                //await _iTopicProducer.Produce(new TicketBookingEvent
+                //{
+                //    FlightNumber = flightNumber,
+                //    FromPlace = fromPlace,
+                //    ToPlace = toPlace,
+                //    NumberOfTickets = numberOfTickets,
+                //    SeatType = seatType
+                //});
                 return Ok("Your ticket(s) booked successfully with booking id " + bookingId);
             }
             catch(Exception ex)

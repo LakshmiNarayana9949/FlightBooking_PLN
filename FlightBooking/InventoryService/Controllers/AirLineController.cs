@@ -26,8 +26,8 @@ namespace InventoryService.Controllers
         [Route("AddNewAirLine")]
         public IActionResult AddNewAirLine(AirLine airLine)
         {
-            airLine.CreatedBy = 2; //Need to save this in session once user login.            
-            airLine.ModifiedBy = 2; //Need to save this in session once user login.
+            //airLine.CreatedBy = 2; //Need to save this in session once user login.            
+            //airLine.ModifiedBy = 2; //Need to save this in session once user login.
             airLine.CreatedOn = DateTime.Now;
             airLine.ModifiedOn = DateTime.Now;
             try
