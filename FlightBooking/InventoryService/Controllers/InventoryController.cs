@@ -52,6 +52,39 @@ namespace InventoryService.Controllers
         }
 
         [Authorize]
+        [HttpGet]
+        [Route("GetInventory/{inventoryId}")]
+        public IActionResult GetInventory(int inventoryId)
+        {
+            var inventories = (from i in _inventoryDbContext.Inventories
+                               join a in _inventoryDbContext.AirLines
+                               on i.AirLineId equals a.AirlineId
+                               where i.InventoryId == inventoryId
+                               select new
+                               {
+                                   inventoryId = i.InventoryId,
+                                   flightNumber = i.FlightNumber,
+                                   airLineId = a.AirlineId,
+                                   airLineName = a.Name,
+                                   fromPlace = i.FromPlace,
+                                   toPlace = i.ToPlace,
+                                   startDate = i.StartDate,
+                                   endDate = i.EndDate,
+                                   scheduledDays = i.ScheduledDays,
+                                   instrument = i.Instrument,
+                                   bClassCount = i.BClassCount,
+                                   nBClassCount = i.NBClassCount,
+                                   ticketCost = i.TicketCost,
+                                   rows = i.Rows,
+                                   mealType = i.MealType
+                               }).ToList();
+            if (inventories.Count() > 0)
+                return Ok(inventories[0]);
+            else
+                return null;
+        }
+
+        [Authorize]
         [HttpPost]
         [Route("GetAllInventoriesWithSearch")]
         public IActionResult GetAllInventoriesWithSearch(DateTime fromDate, string fromPlace, string toPlace)
@@ -59,7 +92,7 @@ namespace InventoryService.Controllers
             var inventories = (from i in _inventoryDbContext.Inventories
                                join a in _inventoryDbContext.AirLines
                                on i.AirLineId equals a.AirlineId
-                               where i.StartDate >= fromDate &&
+                               where i.StartDate <= fromDate && fromDate <= i.EndDate &&
                                      i.FromPlace.ToLower().Contains(fromPlace.ToLower()) &&
                                      i.ToPlace.ToLower().Contains(toPlace.ToLower())
                                select new
