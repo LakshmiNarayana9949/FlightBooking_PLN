@@ -52,7 +52,8 @@ namespace TicketBookingService.Controllers
                     ticket.BookingID = bookingId;
                     ticket.Status = (int)CommonEnums.BookingStatus.Booked;
                     ticket.StatusStr = TICKET_STATUS_BOOKED;
-                    ticket.UserId = ticket.CreatedBy;
+                    ticket.BoardingTime = ticket.DateOfJourney.Date.AddHours(14).AddMinutes(25).AddSeconds(55);
+                    //ticket.UserId = ticket.CreatedBy;
                     //ticket.CreatedBy = 2; //Need to save this in session once user login.
                     //ticket.ModifiedBy = 2; //Need to save this in session once user login.
                     ticket.CreatedOn = DateTime.Now;

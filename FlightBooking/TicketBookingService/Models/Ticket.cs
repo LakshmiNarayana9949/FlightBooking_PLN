@@ -11,12 +11,14 @@ namespace TicketBookingService.Models
     {
         public int Id { get; set; }
         public int UserId { get; set; }
+        public int InventoryId { get; set; }
         public string BookingID { set; get; }
         public string TicketID { set; get; }        
         public string FlightNumber { set; get; }
         public DateTime DateOfJourney { set; get; }
         public string FromPlace { set; get; }
         public string ToPlace { set; get; }
+        public int Cost { get; set; }
         public DateTime BoardingTime { set; get; }
        // public string EmailID { set; get; }
         public string PassengerName { set; get; }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InventoryService.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    [Migration("20220516103030_inventoryservice")]
-    partial class inventoryservice
+    [Migration("20220518054319_ticketbookingservice")]
+    partial class ticketbookingservice
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -99,6 +99,12 @@ namespace InventoryService.Migrations
 
                     b.Property<string>("AirlineName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AvlbleBClassCount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AvlbleNBClassCount")
+                        .HasColumnType("int");
 
                     b.Property<int>("BClassCount")
                         .HasColumnType("int");

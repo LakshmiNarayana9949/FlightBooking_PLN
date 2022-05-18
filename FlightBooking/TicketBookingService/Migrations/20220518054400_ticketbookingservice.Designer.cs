@@ -10,7 +10,7 @@ using TicketBookingService.DBContext;
 namespace TicketBookingService.Migrations
 {
     [DbContext(typeof(TicketBookingDbcontext))]
-    [Migration("20220516103425_ticketbookingservice")]
+    [Migration("20220518054400_ticketbookingservice")]
     partial class ticketbookingservice
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,6 +37,9 @@ namespace TicketBookingService.Migrations
                     b.Property<string>("BookingID")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Cost")
+                        .HasColumnType("int");
+
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
 
@@ -51,6 +54,9 @@ namespace TicketBookingService.Migrations
 
                     b.Property<string>("FromPlace")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("InventoryId")
+                        .HasColumnType("int");
 
                     b.Property<int>("ModifiedBy")
                         .HasColumnType("int");

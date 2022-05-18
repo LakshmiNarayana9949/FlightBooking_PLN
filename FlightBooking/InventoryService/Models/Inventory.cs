@@ -21,6 +21,8 @@ namespace InventoryService.Models
         public string Instrument { get; set; }
         public int BClassCount { get; set; }
         public int NBClassCount { get; set; }
+        public int AvlbleBClassCount { get; set; }
+        public int AvlbleNBClassCount { get; set; }
         public int TicketCost { get; set; }
         public int Rows { get; set; }
         public int MealType { get; set; }

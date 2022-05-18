@@ -62,6 +62,8 @@ namespace InventoryService.Migrations
                     Instrument = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BClassCount = table.Column<int>(type: "int", nullable: false),
                     NBClassCount = table.Column<int>(type: "int", nullable: false),
+                    AvlbleBClassCount = table.Column<int>(type: "int", nullable: false),
+                    AvlbleNBClassCount = table.Column<int>(type: "int", nullable: false),
                     TicketCost = table.Column<int>(type: "int", nullable: false),
                     Rows = table.Column<int>(type: "int", nullable: false),
                     MealType = table.Column<int>(type: "int", nullable: false),
