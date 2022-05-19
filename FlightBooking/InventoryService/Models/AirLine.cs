@@ -15,5 +15,6 @@ namespace InventoryService.Models
         public DateTime CreatedOn { set; get; }
         public int ModifiedBy { set; get; }
         public DateTime ModifiedOn { set; get; }
+        public int Status { get; set; }
     }
 }

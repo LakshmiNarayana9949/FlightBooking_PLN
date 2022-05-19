@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using System.Transactions;
 using InventoryService.DBContext;
+using InventoryService.Common;
 
 namespace InventoryService.Controllers
 {
@@ -33,6 +34,7 @@ namespace InventoryService.Controllers
             var inventories = (from i in _inventoryDbContext.Inventories
                              join a in _inventoryDbContext.AirLines
                              on i.AirLineId equals a.AirlineId
+                             where i.Status == (int)CommonEnums.Status.Active
                              select new {inventoryId = i.InventoryId,
                                         flightNumber = i.FlightNumber,
                                         airLineId =  a.AirlineId,
@@ -59,7 +61,7 @@ namespace InventoryService.Controllers
             var inventories = (from i in _inventoryDbContext.Inventories
                                join a in _inventoryDbContext.AirLines
                                on i.AirLineId equals a.AirlineId
-                               where i.InventoryId == inventoryId
+                               where i.Status == (int)CommonEnums.Status.Active && i.InventoryId == inventoryId
                                select new
                                {
                                    inventoryId = i.InventoryId,
@@ -92,7 +94,7 @@ namespace InventoryService.Controllers
             var inventories = (from i in _inventoryDbContext.Inventories
                                join a in _inventoryDbContext.AirLines
                                on i.AirLineId equals a.AirlineId
-                               where i.StartDate <= fromDate && fromDate <= i.EndDate &&
+                               where i.Status == (int)CommonEnums.Status.Active && i.StartDate <= fromDate && fromDate <= i.EndDate &&
                                      i.FromPlace.ToLower().Contains(fromPlace.ToLower()) &&
                                      i.ToPlace.ToLower().Contains(toPlace.ToLower())
                                select new
@@ -123,10 +125,11 @@ namespace InventoryService.Controllers
         {
             try
             {
-                inventory.CreatedBy = 2; //Need to save this in session once user login.            
-                inventory.ModifiedBy = 2; //Need to save this in session once user login.
+                //inventory.CreatedBy =  2; //Need to save this in session once user login.            
+                //inventory.ModifiedBy = 2; //Need to save this in session once user login.
                 inventory.CreatedOn = DateTime.Now;
                 inventory.ModifiedOn = DateTime.Now;
+                inventory.Status = (int)CommonEnums.Status.Active;
                 using (var scope = new TransactionScope())
                 {
                     _inventory.PlanInventory(inventory);
@@ -135,6 +138,47 @@ namespace InventoryService.Controllers
                 }
             }
             catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Authorize]
+        [HttpPut]
+        [Route("UpdateInventory")]
+        public ActionResult UpdateInventory(Inventory inventory)
+        {
+            try
+            {
+                inventory.Status = (int)CommonEnums.Status.Active;
+                inventory.ModifiedOn = DateTime.Now;
+                _inventory.EditInventory(inventory);
+                return Ok("Inventory updated successfully.");
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }            
+        }
+
+        [Authorize]
+        [HttpPut]
+        [Route("RemoveInventory/{inventoryId}")]
+        public ActionResult RemoveInventory(int inventoryId)
+        {
+            try
+            {
+                Inventory inventory = _inventory.ShowInventories().Where(a => a.InventoryId == inventoryId).ToList()[0];
+                if (inventory != null)
+                {
+                    inventory.Status = (int)CommonEnums.Status.Inactive;
+                    inventory.ModifiedOn = DateTime.Now;
+                    _inventory.EditInventory(inventory);
+                }
+
+                return Ok("Inventory removed successfully.");
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }

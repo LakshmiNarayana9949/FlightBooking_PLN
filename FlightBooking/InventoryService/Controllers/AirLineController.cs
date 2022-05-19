@@ -8,6 +8,7 @@ using InventoryService.Services;
 using InventoryService.Models;
 using System.Transactions;
 using Microsoft.AspNetCore.Authorization;
+using InventoryService.Common;
 
 namespace InventoryService.Controllers
 {
@@ -30,6 +31,7 @@ namespace InventoryService.Controllers
             //airLine.ModifiedBy = 2; //Need to save this in session once user login.
             airLine.CreatedOn = DateTime.Now;
             airLine.ModifiedOn = DateTime.Now;
+            airLine.Status = (int)CommonEnums.Status.Active;
             try
             {
                 using(var scope = new TransactionScope())
@@ -54,12 +56,79 @@ namespace InventoryService.Controllers
             {
                 using (var scope = new TransactionScope())
                 {
-                    return _iAirLineInterface.ShowAllAirLines().ToList();
+                    return _iAirLineInterface.ShowAllAirLines().ToList().Where(a => a.Status == (int)CommonEnums.Status.Active).ToList();
                 }
             }
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("GetAirLine/{airLineId}")]
+        public AirLine GetAirLine(int airLineId)
+        {
+            try
+            {
+                using (var scope = new TransactionScope())
+                {
+                   List<AirLine> airLines = _iAirLineInterface.ShowAllAirLines().ToList().Where(a => a.Status == (int)CommonEnums.Status.Active && a.AirlineId == airLineId).ToList();
+                    if(airLines.Count() > 0)
+                    {
+                        return airLines[0];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        [Authorize]
+        [HttpPut]
+        [Route("UpdateAirLine")]
+        public ActionResult UpdateAirLine(AirLine airLine)
+        {
+            try
+            {
+                airLine.Status = (int)CommonEnums.Status.Active;
+                airLine.ModifiedOn = DateTime.Now;
+                _iAirLineInterface.EditAirLine(airLine);
+                return Ok("Inventory updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [Authorize]
+        [HttpPut]
+        [Route("RemoveAirLine/{id}")]
+        public ActionResult RemoveAirLine(int id)
+        {
+            try
+            {
+                AirLine airLine = _iAirLineInterface.ShowAllAirLines().Where(a => a.AirlineId == id).ToList()[0];
+                if (airLine != null)
+                {
+                    airLine.Status = (int)CommonEnums.Status.Inactive;
+                    airLine.ModifiedOn = DateTime.Now;
+                    _iAirLineInterface.EditAirLine(airLine);
+                }
+
+                return Ok("Inventory removed successfully.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using InventoryService.Models;
 using InventoryService.Services;
 using InventoryService.DBContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace InventoryService.Services
 {
@@ -28,6 +29,12 @@ namespace InventoryService.Services
         public void save()
         {
             _inventoryDbContext.SaveChanges();
+        }
+
+        public void EditAirLine(AirLine airLine)
+        {
+            _inventoryDbContext.Entry(airLine).State = EntityState.Modified;
+            save();
         }
     }
 }

@@ -47,6 +47,9 @@ namespace InventoryService.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.HasKey("AirlineId");
 
                     b.ToTable("AirLines");
@@ -145,6 +148,9 @@ namespace InventoryService.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<int>("TicketCost")
                         .HasColumnType("int");

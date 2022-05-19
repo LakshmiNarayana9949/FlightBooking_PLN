@@ -15,10 +15,6 @@ namespace InventoryService.Services
         {
             _inventoryDbContext = inventoryDbContext;
         }
-        public void CancelInventory(int id)
-        {
-
-        }
 
         public void PlanInventory(Inventory inventory)
         {

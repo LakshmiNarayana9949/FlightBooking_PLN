@@ -10,5 +10,6 @@ namespace InventoryService.Services
     {
         void AddNewAirLine(AirLine airLine);
         List<AirLine> ShowAllAirLines();
+        void EditAirLine(AirLine airLine);
     }
 }

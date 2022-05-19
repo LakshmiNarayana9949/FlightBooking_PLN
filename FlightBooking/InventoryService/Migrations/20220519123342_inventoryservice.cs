@@ -19,7 +19,8 @@ namespace InventoryService.Migrations
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<int>(type: "int", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -70,7 +71,8 @@ namespace InventoryService.Migrations
                     CreatedBy = table.Column<int>(type: "int", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedBy = table.Column<int>(type: "int", nullable: false),
-                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
