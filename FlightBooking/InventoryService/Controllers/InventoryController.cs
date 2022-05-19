@@ -84,7 +84,7 @@ namespace InventoryService.Controllers
                 return null;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         [Route("GetAllInventoriesWithSearch")]
         public IActionResult GetAllInventoriesWithSearch(DateTime fromDate, string fromPlace, string toPlace)
