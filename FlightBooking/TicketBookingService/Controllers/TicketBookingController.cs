@@ -40,6 +40,8 @@ namespace TicketBookingService.Controllers
             string fromPlace = tickets[0].FromPlace;
             string toPlace = tickets[0].ToPlace;
             int seatType = tickets[0].SeatType;
+            int ticketsDBCount = _iTicketBookingInterface.GetAllTickets().ToList().Where(a => a.FlightNumber == tickets[0].FlightNumber).ToList().Count();
+            
             try
             {
                 bookingId = GenerateBookingID();
@@ -50,6 +52,12 @@ namespace TicketBookingService.Controllers
                     ticket.TicketID = TicketId;
                     ticket.BookingID = string.Empty;
                     ticket.BookingID = bookingId;
+                    int seatNumber = ticketsDBCount + 1;
+                    if(ticket.SeatType == (int)CommonEnums.SeatType.BusinessClass)
+                        ticket.SeatNumber = "A" + seatNumber.ToString();
+                    else
+                        ticket.SeatNumber = "B" + seatNumber.ToString();
+
                     ticket.Status = (int)CommonEnums.BookingStatus.Booked;
                     ticket.StatusStr = TICKET_STATUS_BOOKED;
                     ticket.BoardingTime = ticket.DateOfJourney.Date.AddHours(14).AddMinutes(25).AddSeconds(55);
@@ -110,14 +118,34 @@ namespace TicketBookingService.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet]
-        [Route("GetTicket/{TicketID}")]
-        public IActionResult GetTicket(string TicketID)
+        [Route("GetTicketInfo/{ticketId}")]
+        public IActionResult GetTicketInfo(string ticketId)
         {
             try
             {
+                var ticket = _iTicketBookingInterface.GetAllTickets().ToList().Where(a => a.TicketID == ticketId).ToList();
+                return new OkObjectResult(ticket);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet]
+        [Route("GetTicketsWithSearch")]
+        public IActionResult GetTicketsWithSearch(int userId, string TicketID)
+        {
+            try
+            {
+                if (TicketID == null)
+                    TicketID = "";
                 IEnumerable<Ticket> tickets = _iTicketBookingInterface.GetAllTickets().ToList()
-                                                .Where(o => o.TicketID.ToUpper() == TicketID.ToUpper());
+                                                .Where(o => o.UserId == userId &&
+                                                            (o.TicketID.ToUpper().Contains(TicketID.ToUpper()) || 
+                                                             o.BookingID.ToUpper().Contains(TicketID.ToUpper()) ));
                 return new OkObjectResult(tickets);
             }
             catch(Exception ex)
@@ -128,12 +156,12 @@ namespace TicketBookingService.Controllers
 
         [Authorize]
         [HttpGet]
-        [Route("GetAllTickets")]
-        public IActionResult GetAllTickets()
+        [Route("GetAllTickets/{userId}")]
+        public IActionResult GetAllTickets(int userId)
         {
             try
             {
-                var tickets = _iTicketBookingInterface.GetAllTickets().ToList();
+                var tickets = _iTicketBookingInterface.GetAllTickets().ToList().Where(a => a.UserId == userId).ToList();
                 return new OkObjectResult(tickets);
             }
             catch(Exception ex)
