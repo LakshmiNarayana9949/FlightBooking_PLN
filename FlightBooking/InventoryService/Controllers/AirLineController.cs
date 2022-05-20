@@ -9,6 +9,7 @@ using InventoryService.Models;
 using System.Transactions;
 using Microsoft.AspNetCore.Authorization;
 using InventoryService.Common;
+using InventoryService.DBContext;
 
 namespace InventoryService.Controllers
 {
@@ -17,9 +18,11 @@ namespace InventoryService.Controllers
     public class AirLineController : ControllerBase
     {
         public readonly IAirLineInterface _iAirLineInterface;
-        public AirLineController(IAirLineInterface iAirLineInterface)
+        private readonly InventoryDbContext _inventoryDbContext;
+        public AirLineController(IAirLineInterface iAirLineInterface, InventoryDbContext inventoryDbContext)
         {
             _iAirLineInterface = iAirLineInterface;
+            _inventoryDbContext = inventoryDbContext;
         }
 
         [Authorize]
@@ -116,15 +119,23 @@ namespace InventoryService.Controllers
         {
             try
             {
-                AirLine airLine = _iAirLineInterface.ShowAllAirLines().Where(a => a.AirlineId == id).ToList()[0];
-                if (airLine != null)
+                List<Inventory> inventories = _inventoryDbContext.Inventories.ToList().Where(a => a.AirLineId == id && a.Status == (int)CommonEnums.Status.Active).ToList();
+                if (inventories.Count() > 0)
                 {
-                    airLine.Status = (int)CommonEnums.Status.Inactive;
-                    airLine.ModifiedOn = DateTime.Now;
-                    _iAirLineInterface.EditAirLine(airLine);
+                    return Ok("Can not delete this airline as a Inventory is scheduled for this AirLine");
                 }
+                else
+                {
+                    AirLine airLine = _iAirLineInterface.ShowAllAirLines().Where(a => a.AirlineId == id).ToList()[0];
+                    if (airLine != null)
+                    {
+                        airLine.Status = (int)CommonEnums.Status.Inactive;
+                        airLine.ModifiedOn = DateTime.Now;
+                        _iAirLineInterface.EditAirLine(airLine);
+                    }
 
-                return Ok("Inventory removed successfully.");
+                    return Ok("Inventory removed successfully.");
+                }
             }
             catch (Exception ex)
             {
